@@ -1,0 +1,24 @@
+defaultTasks 'clean', 'cleanInstall', 'prepareExtensions', 'installExt'
+
+def baseDir = "${System.getProperty('user.home')}/.gvm"
+ext.installExtDir = "$baseDir/ext"
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.3'
+}
+
+task cleanInstall(type: Delete) {
+	delete installExtDir
+}
+
+task prepareExtensions(type: Copy) {
+	from 'src/main/resources/extensions'
+	into 'build/extensions'
+	include 'gvm-*'
+}
+
+task installExt(type: Copy) {
+	from "build/extensions"
+	into installExtDir
+	include "gvm-*"
+}
