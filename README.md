@@ -15,9 +15,9 @@ This may then be invoked from the command line by:
     gvm command arg1 [argz]
 
 where:
-	command : the custom extension's name
-	arg1    : the candidate (mandatory)
-	argz    : additional optional parameter(s)
+* command : the custom extension's name
+* arg1 : the candidate (mandatory)
+* argz : additional optional parameter(s)
 
 Example:
 
