@@ -1,4 +1,4 @@
-defaultTasks 'clean', 'cleanInstall', 'prepareExtensions', 'installExt'
+defaultTasks 'clean', 'cleanInstall', 'prepareExtensions', 'install'
 
 def baseDir = "${System.getProperty('user.home')}/.gvm"
 ext.installExtDir = "$baseDir/ext"
@@ -17,7 +17,7 @@ task prepareExtensions(type: Copy) {
 	include 'gvm-*'
 }
 
-task installExt(type: Copy) {
+task install(type: Copy, dependsOn: [cleanInstall, prepareExtensions]) {
 	from "build/extensions"
 	into installExtDir
 	include "gvm-*"
