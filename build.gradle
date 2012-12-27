@@ -14,11 +14,11 @@ task cleanInstall(type: Delete) {
 task prepareExtensions(type: Copy) {
 	from 'src/main/resources/extensions'
 	into 'build/extensions'
-	include 'gvm-*'
+	include 'sourced-gvm-*'
 }
 
 task install(type: Copy, dependsOn: [cleanInstall, prepareExtensions]) {
 	from "build/extensions"
 	into installExtDir
-	include "gvm-*"
+	include "sourced-gvm-*"
 }
