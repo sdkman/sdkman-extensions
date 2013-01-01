@@ -6,7 +6,7 @@ function __gvmtool_switch {
 		echo "No candidate provided."
 	else
 		if [[ -f application.properties && -d "$CANDIDATE-app" ]]; then
-			VERSION=$(cat application.properties | grep 'app.grails.version' | sed 's_app.grails.version=__g')
+			VERSION=$(cat application.properties | grep "app.$CANDIDATE.version" | sed "s!app.$CANDIDATE.version=!!g")
 			echo "Switching to $CANDIDATE $VERSION ..."
 			__gvmtool_use "$CANDIDATE" "$VERSION"
 		else
