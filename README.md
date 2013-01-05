@@ -8,6 +8,12 @@ GVM allows you to add your own extension commands. An extension command is picke
 
     gvm-<command> <arg1> [argz]
 
+The extensions should then define a function containing the name of the new command as follows:
+
+	function __gvmtool_<command> {
+		//code
+	}
+
 Any such custom extensions must be placed in the `ext` folder under your GVM directory (usually `~/.gvm`).
 
 This may then be invoked from the command line by:
@@ -24,6 +30,6 @@ Example:
     gvm switch grails
 
 
-To install all the commands in this project:
+To install all the commands in this project into `GVM_HOME`:
 
     gradle install
