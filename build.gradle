@@ -8,7 +8,10 @@ task wrapper(type: Wrapper) {
 }
 
 task cleanInstall(type: Delete) {
-	delete installExtDir
+    fileTree(dir: 'build/extensions').each { file ->
+        def basename = file.name.split('/')[-1]
+        delete installExtDir + '/' + basename
+    }
 }
 
 task prepareExtensions(type: Copy) {
