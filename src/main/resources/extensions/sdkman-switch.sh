@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function __gvmtool_switch {
+function __sdkman_switch {
 	CANDIDATE="$1"
 	if [[ -z "$1" ]]; then
 		if [[ -f application.properties ]]; then
@@ -8,7 +8,7 @@ function __gvmtool_switch {
 			POSSIBLE_CANDIDATES=( $(cat application.properties | grep "app\..*\.version" | sed 's/app.//' | sed 's/.version.*//g') )
 			for c in "${POSSIBLE_CANDIDATES[@]}"
 			do
-				if [[ "$GVM_CANDIDATES_CSV" == *"${c}"* ]]; then
+				if [[ "$SDKMAN_CANDIDATES_CSV" == *"${c}"* ]]; then
 					CANDIDATE="${c}"
 				fi
 			done
@@ -21,7 +21,7 @@ function __gvmtool_switch {
 		if [[ -f application.properties && -d "$CANDIDATE-app" ]]; then
 			VERSION=$(cat application.properties | grep "app.$CANDIDATE.version" | sed "s!app.$CANDIDATE.version=!!g")
 			echo "Switching to $CANDIDATE $VERSION ..."
-			__gvmtool_use "$CANDIDATE" "$VERSION"
+			__sdkman_use "$CANDIDATE" "$VERSION"
 		else
 			echo "Stop! This is not a valid $CANDIDATE project!"
 		fi

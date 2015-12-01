@@ -1,6 +1,6 @@
 defaultTasks 'clean', 'prepareExtensions', 'install'
 
-def baseDir = "${System.getProperty('user.home')}/.gvm"
+def baseDir = "${System.getProperty('user.home')}/.sdkman"
 ext.installExtDir = "$baseDir/ext"
 
 task wrapper(type: Wrapper) {
@@ -10,11 +10,11 @@ task wrapper(type: Wrapper) {
 task prepareExtensions(type: Copy) {
 	from 'src/main/resources/extensions'
 	into 'build/extensions'
-	include 'gvm-*'
+	include 'sdkman-*'
 }
 
 task install(type: Copy, dependsOn: prepareExtensions) {
 	from "build/extensions"
 	into installExtDir
-	include "gvm-*"
+	include "sdkman-*"
 }
