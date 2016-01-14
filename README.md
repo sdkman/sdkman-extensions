@@ -6,11 +6,11 @@ SDKMAN is the The Software Development Kit Manager. It is a tool for managing pa
 
 SDKMAN allows you to add your own extension commands. An extension command is picked up by SDKMAN based on the following naming convention:
 
-    sdkman-<command> <arg1> [argz]
+    sdkman-<command>.sh
 
 The extensions should then define a function containing the name of the new command as follows:
 
-	function __sdkman_<command> {
+	function __sdk_<command> {
 		//code
 	}
 
