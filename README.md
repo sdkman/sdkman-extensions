@@ -6,7 +6,7 @@ SDKMAN is the The Software Development Kit Manager. It is a tool for managing pa
 
 SDKMAN allows you to add your own extension commands. An extension command is picked up by SDKMAN based on the following naming convention:
 
-    sdkman-<command>.sh
+    sdkman-<command> <arg1> [argz]
 
 The extensions should then define a function containing the name of the new command as follows:
 
@@ -14,7 +14,7 @@ The extensions should then define a function containing the name of the new comm
 		//code
 	}
 
-Any such custom extensions must be placed in the `ext` folder under your SDKMAN directory (usually `~/.sdkman`).
+Any such custom extensions must be placed in the `ext` folder under your SDKMAN directory (usually `~/.sdkman`) and named `sdkman-<command>.sh`.
 
 This may then be invoked from the command line by:
 
