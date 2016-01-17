@@ -10,11 +10,11 @@ SDKMAN allows you to add your own extension commands. An extension command is pi
 
 The extensions should then define a function containing the name of the new command as follows:
 
-	function __sdkman_<command> {
+	function __sdk_<command> {
 		//code
 	}
 
-Any such custom extensions must be placed in the `ext` folder under your SDKMAN directory (usually `~/.sdkman`).
+Any such custom extensions must be placed in the `ext` folder under your SDKMAN directory (usually `~/.sdkman`) and named `sdkman-<command>.sh`.
 
 This may then be invoked from the command line by:
 

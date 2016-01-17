@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function __sdkman_switch {
+function __sdk_switch {
 	CANDIDATE="$1"
 	if [[ -z "$1" ]]; then
 		if [[ -f application.properties ]]; then
@@ -21,10 +21,10 @@ function __sdkman_switch {
 		if [[ -f application.properties && -d "$CANDIDATE-app" ]]; then
 			VERSION=$(cat application.properties | grep "app.$CANDIDATE.version" | sed "s!app.$CANDIDATE.version=!!g")
 			echo "Switching to $CANDIDATE $VERSION ..."
-			__sdkman_use "$CANDIDATE" "$VERSION"
+			__sdk_use "$CANDIDATE" "$VERSION"
 		else
 			echo "Stop! This is not a valid $CANDIDATE project!"
 		fi
 	fi
-}	
+}
 
