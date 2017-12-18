@@ -1,6 +1,6 @@
 # SDKMAN Extension Commands
 
-SDKMAN is the The Software Development Kit Manager. It is a tool for managing parallel Versions of multiple Software Development Kits on any Unix based system. It provides a convenient command line interface for installing, switching, removing and listing Candidates. Documentation can be found on the [SDKMAN Project Page](http://skdman.io).
+SDKMAN is the The Software Development Kit Manager. It is a tool for managing parallel Versions of multiple Software Development Kits on any Unix based system. It provides a convenient command line interface for installing, switching, removing and listing Candidates. Documentation can be found on the [SDKMAN Project Page](http://sdkman.io).
 
 ## Extension Commands
 
